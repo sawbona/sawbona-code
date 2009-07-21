@@ -7,7 +7,7 @@
 
 <struts-config>
     <form-beans>
-    
+        <form-bean name="ArchivoAF" type="mx.com.sawbona.testing.vista.carga.archivo.ArchivoAF"/>
     </form-beans>
     
     <global-exceptions>
@@ -15,11 +15,20 @@
     </global-exceptions>
 
     <global-forwards>
-        <forward name="welcome"  path="/Welcome.do"/>
+        <forward name="home"  path="home.page"/>
+        <forward name="success" path="Exito.page"/>
     </global-forwards>
 
     <action-mappings>
-        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+        <action path="/Home" forward="home.page"/>
+        <action path="/IniciaArchivoA" forward="CargaArchivo.page"/>
+        <action path="/PruebaAppletA" forward="PruebaApplet.page"/>
+        <action input="home.page" name="ArchivoAF" 
+                path="/ArchivoA" scope="session"
+                type="mx.com.sawbona.testing.vista.carga.archivo.ArchivoA">
+        </action>
+        <action path="/DescargarArchivoA"
+            type="mx.com.sawbona.testing.vista.descarga.archivo.DescargarArchivoA"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
