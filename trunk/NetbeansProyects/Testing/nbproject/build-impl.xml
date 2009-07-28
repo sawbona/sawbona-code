@@ -395,8 +395,14 @@ exists or setup the property manually. For example like this:
     <!--
                 COMPILATION SECTION
             -->
-    <target depends="init" if="no.dist.ear.dir" name="deps-module-jar" unless="no.deps"/>
-    <target depends="init" if="dist.ear.dir" name="deps-ear-jar" unless="no.deps"/>
+    <target depends="init" if="no.dist.ear.dir" name="deps-module-jar" unless="no.deps">
+        <ant antfile="${project.TestingLogic}/build.xml" inheritall="false" target="jar"/>
+        <ant antfile="${project.TestingModel}/build.xml" inheritall="false" target="jar"/>
+    </target>
+    <target depends="init" if="dist.ear.dir" name="deps-ear-jar" unless="no.deps">
+        <ant antfile="${project.TestingLogic}/build.xml" inheritall="false" target="jar"/>
+        <ant antfile="${project.TestingModel}/build.xml" inheritall="false" target="jar"/>
+    </target>
     <target depends="init, deps-module-jar, deps-ear-jar" name="deps-jar" unless="no.deps"/>
     <target depends="init,deps-jar" name="-pre-pre-compile">
         <mkdir dir="${build.classes.dir}"/>
@@ -536,16 +542,20 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${libs.struts.classpath}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.libs.struts.classpath" todir="${dist.ear.dir}"/>
         <copyfiles files="${libs.hibernate-persistence.classpath}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.libs.hibernate-persistence.classpath" todir="${dist.ear.dir}"/>
         <copyfiles files="${libs.MySQLDriver.classpath}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.libs.MySQLDriver.classpath" todir="${dist.ear.dir}"/>
+        <copyfiles files="${reference.TestingLogic.jar}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.reference.TestingLogic.jar" todir="${dist.ear.dir}"/>
+        <copyfiles files="${reference.TestingModel.jar}" iftldtodir="${build.web.dir}/WEB-INF" manifestproperty="manifest.reference.TestingModel.jar" todir="${dist.ear.dir}"/>
         <copyfiles files="${file.reference.GeoLab.jar}" todir="${build.web.dir}//"/>
         <mkdir dir="${build.web.dir}/META-INF"/>
         <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Class-Path" value="${manifest.libs.struts.classpath} ${manifest.libs.hibernate-persistence.classpath} ${manifest.libs.MySQLDriver.classpath} "/>
+            <attribute name="Class-Path" value="${manifest.libs.struts.classpath} ${manifest.libs.hibernate-persistence.classpath} ${manifest.libs.MySQLDriver.classpath} ${manifest.reference.TestingLogic.jar} ${manifest.reference.TestingModel.jar} "/>
         </manifest>
     </target>
     <target depends="init" name="library-inclusion-in-archive" unless="dist.ear.dir">
         <copyfiles files="${libs.struts.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${libs.hibernate-persistence.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${libs.MySQLDriver.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${reference.TestingLogic.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${reference.TestingModel.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${file.reference.GeoLab.jar}" todir="${build.web.dir}//"/>
     </target>
     <target depends="init,compile,compile-jsps,-pre-dist,library-inclusion-in-manifest" name="do-ear-dist">
@@ -826,7 +836,10 @@ exists or setup the property manually. For example like this:
                 
                 CLEANUP SECTION
             -->
-    <target depends="init" if="no.dist.ear.dir" name="deps-clean" unless="no.deps"/>
+    <target depends="init" if="no.dist.ear.dir" name="deps-clean" unless="no.deps">
+        <ant antfile="${project.TestingLogic}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.TestingModel}/build.xml" inheritall="false" target="clean"/>
+    </target>
     <target depends="init" name="do-clean">
         <condition property="build.dir.to.clean" value="${build.web.dir}">
             <isset property="dist.ear.dir"/>

@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="AltaUsuariosAF" type="mx.com.sawbona.testing.vista.alta.usuarios.AltaUsuariosAF"/>
         <form-bean name="ArchivoAF" type="mx.com.sawbona.testing.vista.carga.archivo.ArchivoAF"/>
     </form-beans>
     
@@ -17,6 +18,7 @@
     <global-forwards>
         <forward name="home"  path="home.page"/>
         <forward name="success" path="Exito.page"/>
+        <forward name="alta.usuario" path="AltaUsuario.page"/>
     </global-forwards>
 
     <action-mappings>
@@ -27,6 +29,9 @@
                 path="/ArchivoA" scope="session"
                 type="mx.com.sawbona.testing.vista.carga.archivo.ArchivoA">
         </action>
+        <action input="AltaUsuarios.page" name="AltaUsuariosAF" path="/AltaUsuariosA" scope="session" type="mx.com.sawbona.testing.vista.alta.usuarios.AltaUsuariosA"/>
+        <action path="/IniciaAltaUsuario"
+                type="mx.com.sawbona.testing.vista.alta.usuarios.IniciaAltaUsuario"/>
         <action path="/DescargarArchivoA"
             type="mx.com.sawbona.testing.vista.descarga.archivo.DescargarArchivoA"/>
     </action-mappings>
