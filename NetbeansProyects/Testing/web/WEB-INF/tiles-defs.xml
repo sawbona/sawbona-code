@@ -10,35 +10,9 @@
 -->
 
 <tiles-definitions>
-
-    <!-- sample tiles definitions
-    <definition name=".mainLayout" path="/common/layouts/classicLayout.jsp">
-        <put name="title"  value="Sample Page Title" />
-        <put name="header" value="/common/header.jsp" />
-        <put name="menu"   value=".mainMenu" />
-        <put name="footer" value="/common/footer.jsp" />
-        <put name="body"   value=".portal.body" />
-    </definition>
-
-    <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
-        <putList name="list" >
-            <add value=".menu.links" />
-            <add value=".menu.taglib.references" />
-            <add value=".menu.printer.friendly" />
-            <add value=".menu.old.documents" />
-      </putList>
-    </definition>
-
-    <definition name="aPage" extends=".mainLayout">
-        <put name="title"  value="Another Title" />
-        <put name="body"   value=".aPage.body" />
-    </definition>
-
-    end samples -->
-    <definition name="home.page" path="/WEB-INF/tiles/layout/principal.jsp">
-    </definition>
+    <definition name="home.page" path="/WEB-INF/tiles/layout/principal.jsp"/>
     <definition name="CargaArchivo.page" path="/WEB-INF/carga/cargaArchivos.jsp"/>
     <definition name="PruebaApplet.page" path="/WEB-INF/applets/geolabs.jsp"/>
     <definition name="Exito.page" path="/WEB-INF/exito.jsp"/>
-
+    <definition name="AltaUsuarios.page" path="/WEB-INF/administracion/AltaUsuarioForm.jsp"/>
 </tiles-definitions>
