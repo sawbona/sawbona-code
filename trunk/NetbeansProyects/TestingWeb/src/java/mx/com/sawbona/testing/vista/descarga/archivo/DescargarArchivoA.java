@@ -5,12 +5,9 @@
 
 package mx.com.sawbona.testing.vista.descarga.archivo;
 
-import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mx.com.sawbona.testing.acceso.datos.DataDaoUtil;
-import mx.com.sawbona.testing.modelo.ArchivoLab;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
@@ -37,12 +34,12 @@ public class DescargarArchivoA extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        String nombreDelArchivo = request.getParameter("id");
-        EntityManager entityManager = DataDaoUtil.getEntityManager();
-        ArchivoLab leido = entityManager.find(ArchivoLab.class, nombreDelArchivo);
-        response.setContentType("application/octet-stream");
-        response.setHeader("Content-Disposition","inline; filename=" + leido.getNombreArchivo());
-        response.getOutputStream().write(leido.getBytes());
+//        String nombreDelArchivo = request.getParameter("id");
+//        EntityManager entityManager = DataDaoUtil.getEntityManager();
+//        ArchivoLab leido = entityManager.find(ArchivoLab.class, nombreDelArchivo);
+//        response.setContentType("application/octet-stream");
+//        response.setHeader("Content-Disposition","inline; filename=" + leido.getNombreArchivo());
+//        response.getOutputStream().write(leido.getBytes());
         return mapping.findForward(SUCCESS);
     }
 }
