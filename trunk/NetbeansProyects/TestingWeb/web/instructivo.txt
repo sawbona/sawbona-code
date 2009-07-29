@@ -1,0 +1,23 @@
+Una lección está formada por:
+- Un "índice" que aparece en la parte superior izquierda. 
+- Páginas de explicación que aparecen en la parte superior derecha.
+- Un área de trabajo donde hay una construcción geométrica interactiva.
+
+Al hacer clic en una entrada del índice, se abre una página de explicación en la ventana derecha y en el área de trabajo aparece una construcción geométrica que permite explorar las relaciones geométricas que se describen.
+
+El símbolo (+) a la izquierda de una entrada del índice indica que hay uno o más pasos relacionados a la explicación, puede ser una animación o alguna otra construcción. Hacer clic en el + para ver estos pasos.
+
+En las construcciones, normalmente los puntos ROJOS se pueden arrastrar.
+
+El sonido puede encenderse o apagarse haciendo click en la parte inferior, junto a la palabra "sonido".
+
+En algunos casos las animaciones dejan un trazo al moverse. El botón "Limpia" que se encuentra en la parte inferior derecha de la pantalla sirve para limpiar el trazo.
+
+Acerca de la precisión:
+Las computadoras trabajan con una gran cantidad de números decimales, pero a veces un programa muestra únicamente 0, 1 o 2 decimales, y en ocasiones los resultados parecen equivocados.
+Por ejemplo, si se pide a la computadora que sume 1.6 mas 1.7, el resultado que obtiene es 3.3 que es correcto. 
+1.6  +1.7 = 3.3
+Pero si se le indica que muestre los números con 0 decimales, entonces, redondea y escribe:
+2 + 2 = 3
+Que es incorrecto.
+Hay que tener en cuenta esto cuando se le pide a un programa muestre los datos con pocos decimales.
