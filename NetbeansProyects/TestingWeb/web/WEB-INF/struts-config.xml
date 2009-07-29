@@ -16,7 +16,7 @@
     </global-exceptions>
 
     <global-forwards>
-        <forward name="home"  path="home.page"/>
+        <forward name="home" path="home.page"/>
         <forward name="success" path="Exito.page"/>
         <forward name="alta.usuario" path="AltaUsuario.page"/>
     </global-forwards>
@@ -25,7 +25,7 @@
         <action path="/Home" forward="home.page"/>
         <action path="/IniciaArchivoA" forward="CargaArchivo.page"/>
         <action path="/PruebaAppletA" forward="PruebaApplet.page"/>
-        <action input="home.page" name="ArchivoAF" 
+        <action input="home.page" name="ArchivoAF"
                 path="/ArchivoA" scope="session"
                 type="mx.com.sawbona.testing.vista.carga.archivo.ArchivoA">
         </action>
@@ -38,7 +38,7 @@
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
 
-    <message-resources parameter="mx/com/sawbona/testing/ApplicationResource"/>    
+    <message-resources parameter="mx/com/sawbona/testing/ApplicationResource"/>
     
     <!-- ========================= Tiles plugin ===============================-->
     <!--
@@ -68,7 +68,7 @@
     Paths found in Tiles definitions are relative to the main context.
     -->
     <plug-in className="org.apache.struts.tiles.TilesPlugin" >
-        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
         <set-property property="moduleAware" value="true" />
     </plug-in>
     

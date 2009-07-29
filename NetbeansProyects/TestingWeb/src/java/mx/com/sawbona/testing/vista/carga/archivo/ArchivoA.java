@@ -11,7 +11,6 @@ import javax.persistence.EntityTransaction;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mx.com.sawbona.testing.acceso.datos.DataDaoUtil;
 import mx.com.sawbona.testing.modelo.ArchivoLab;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
@@ -40,23 +39,23 @@ public class ArchivoA extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        ArchivoAF forma = (ArchivoAF) form;
-        FormFile file = forma.getArchivo();
-        EntityManager entityManager = DataDaoUtil.getEntityManager();
-        EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        ArchivoLab archivo = new ArchivoLab();
-        archivo.setNombreArchivo(file.getFileName());
-        byte[] buffer = new byte[file.getFileSize()];
-        InputStream inputStream = file.getInputStream();
-        while(inputStream.available() > 0){
-            inputStream.read(buffer);
-        }
-        archivo.setBytes(buffer);
-        entityManager.persist(archivo);
-        entityManager.flush();
-        transaction.commit();
-        file.destroy();
+//        ArchivoAF forma = (ArchivoAF) form;
+//        FormFile file = forma.getArchivo();
+//        EntityManager entityManager = DataDaoUtil.getEntityManager();
+//        EntityTransaction transaction = entityManager.getTransaction();
+//        transaction.begin();
+//        ArchivoLab archivo = new ArchivoLab();
+//        archivo.setNombreArchivo(file.getFileName());
+//        byte[] buffer = new byte[file.getFileSize()];
+//        InputStream inputStream = file.getInputStream();
+//        while(inputStream.available() > 0){
+//            inputStream.read(buffer);
+//        }
+//        archivo.setBytes(buffer);
+//        entityManager.persist(archivo);
+//        entityManager.flush();
+//        transaction.commit();
+//        file.destroy();
         return mapping.findForward(SUCCESS);
     }
 }
