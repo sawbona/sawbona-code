@@ -14,18 +14,6 @@ import javax.persistence.Id;
 @Entity
 public class Usuario implements Serializable {
     private static final long serialVersionUID = -6518844951631115100L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     private String nombre;
 
     /**
@@ -64,6 +52,7 @@ public class Usuario implements Serializable {
     public void setApellidoPaterno(String apellidoPaterno) {
         this.apellidoPaterno = apellidoPaterno;
     }
+    @Id
     private String email;
 
     /**
@@ -84,31 +73,55 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
-    
+    private String password;
+
+    /**
+     * Get the value of password
+     *
+     * @return the value of password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Set the value of password
+     *
+     * @param password new value of password
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if(other.getEmail().equals(email)){
+            return true;
+        }
+        return false;
+    }
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        int hash = 3;
+        hash = 29 * hash + (this.nombre != null ? this.nombre.hashCode() : 0);
+        hash = 29 * hash + (this.apellidoPaterno != null ? this.apellidoPaterno.hashCode() : 0);
+        hash = 29 * hash + (this.email != null ? this.email.hashCode() : 0);
+        hash = 29 * hash + (this.password != null ? this.password.hashCode() : 0);
         return hash;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Usuario)) {
-            return false;
-        }
-        Usuario other = (Usuario) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
 
     @Override
     public String toString() {
-        return "mx.com.sawbona.testing.modelo.Usuario[id=" + id + "]";
+        return "mx.com.sawbona.testing.modelo.Usuario[id=" + email + "]";
     }
 
 }

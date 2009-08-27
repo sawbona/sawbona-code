@@ -42,7 +42,7 @@ public class HibernateUtilTest {
     public void tearDown() {
     }
 
-    /**
+    /**!
      * Test of getEntityManager method, of class Util.
      */
     @Test
