@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="practica2" default="all" basedir=".">
+
+  <!-- ALL -->
+  <target name="all" depends="clean,jar,docs" />
+
+  
+  <!-- Ejecuta el main principal
+       cambia Factorial por el nombre de tu clase con el main principal
+  -->  
+  <target name="run" depends="compile">    
+    <java classname="unam.ciencias.algs1.practica2.Factorial" fork="true">
+      <classpath>
+		<pathelement path="build" />       
+      </classpath>
+    </java>
+  </target>
+  
+  <!-- Ejecuta main de Factorial -->
+  <target name="run.factorial" depends="compile">    
+    <java classname="unam.ciencias.algs1.practica2.Factorial" fork="true">
+      <classpath>
+		<pathelement path="build" />       
+      </classpath>
+    </java>
+  </target>
+
+  <!--
+       Crea el archivo practica2.jar
+       La clase main esta enunciada en el atributo value del tag attibute
+    -->
+  <target name="jar" depends="compile">
+    <jar jarfile="practica2.jar" basedir="build">
+      <manifest>
+        <attribute name="Main-Class" value="unam.ciencias.algs1.practica2.Factorial" /> 
+      </manifest>
+    </jar>
+  </target>
+
+  <!-- Compila el proyecto -->
+  <target name="compile">
+    <mkdir dir="build" />
+    <javac srcdir="src" destdir="build" debug="false">
+      <classpath>
+      </classpath>
+    </javac>
+  </target>
+
+  <!-- Borra los directorios build y clean -->
+  <target name="clean">
+    <delete dir="build"/>
+    <delete dir="docs" />
+    <delete file="practica2.jar"/>
+  </target>
+
+  <!-- Genera la documentacion -->
+  <target name="docs">
+    <javadoc sourcepath="src" destdir="docs" packagenames="*" />
+  </target>
+
+</project>

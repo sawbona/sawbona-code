@@ -23,6 +23,6 @@ public class Main {
         Edge aristaUno = new Edge(dos, tres);
         Edge aristaDos = new Edge(dos, uno);
         Edge[] aristas = new Edge[]{aristaUno, aristaDos};
-
+        Graph grafica = new ArrayGraph();
     }
 }
