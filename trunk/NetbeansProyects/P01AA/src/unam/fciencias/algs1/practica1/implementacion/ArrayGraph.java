@@ -5,6 +5,7 @@
 
 package unam.fciencias.algs1.practica1.implementacion;
 
+import java.util.Arrays;
 import java.util.List;
 import unam.fciencias.algs1.util.Edge;
 import unam.fciencias.algs1.util.Graph;
@@ -16,84 +17,96 @@ import unam.fciencias.algs1.util.Vertex;
  */
 public class ArrayGraph implements Graph{
 
+    private Vertex[] vertices;
+
+    private Edge[] aristas;
+
     public int getVertexNum() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return vertices.length;
     }
 
     public int getEdgesNum() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return aristas.length;
     }
 
     public List<Vertex> getVertexList() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return Arrays.asList(vertices);
     }
 
     public Vertex[] getVertexArray() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return vertices;
     }
 
     public Vertex getVertex(int i) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return vertices[i];
     }
 
     public List<Edge> getEdgesList() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return Arrays.asList(aristas);
     }
 
     public Edge[] getEdgesArray() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return aristas;
     }
 
     public Edge getEdge(Vertex start, Vertex end) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Edge resultado = new Edge(start, end);
+        return resultado;
     }
 
     public Edge getEdge(int i) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return aristas[i];
     }
 
     public boolean isAdjacent(Vertex start, Vertex end) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        for (int i = 0; i < aristas.length; i++) {
+            Edge arista = aristas[i];
+            if(arista.getSource() == start && arista.getTarget() == end ||
+                    (arista.getSource() == end && arista.getTarget() == start)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean isAdjacent(int i, int j) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return isAdjacent(vertices[i], vertices[j]);
     }
 
     public int getDegree(Vertex v) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return v.grade();
     }
 
     public int getDegree(int i) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return vertices[i].getNeighboursList().size();
     }
 
     public int getWeight(Edge e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return e.getWeight();
     }
 
     public int getWeight(Vertex start, Vertex end) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return getEdge(start, end).getWeight();
     }
 
     public int getWeight(int start, int end) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return getEdge(vertices[start], vertices[end]).getWeight();
     }
 
     public Vertex[] getNeighborsArray(Vertex v) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       return (Vertex[]) v.getNeighboursList().toArray();
     }
 
     public Vertex[] getNeighborsArray(int i) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return (Vertex[]) vertices[i].getNeighboursList().toArray();
     }
 
     public List<Vertex> getNeighborsList(Vertex v) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return v.getNeighboursList();
     }
 
     public List<Vertex> getNeighborsList(int i) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return vertices[i].getNeighboursList();
     }
 
 }
