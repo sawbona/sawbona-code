@@ -34,6 +34,7 @@ public class IniciaArchivoA extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        System.out.println("HOLA NO ME HE MUERTO");
         return mapping.findForward(SUCCESS);
     }
 }
