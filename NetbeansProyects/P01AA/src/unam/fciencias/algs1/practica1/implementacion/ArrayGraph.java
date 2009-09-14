@@ -5,7 +5,6 @@
 
 package unam.fciencias.algs1.practica1.implementacion;
 
-import java.util.Collection;
 import java.util.List;
 import unam.fciencias.algs1.util.Edge;
 import unam.fciencias.algs1.util.Graph;
@@ -16,10 +15,6 @@ import unam.fciencias.algs1.util.Vertex;
  * @author jacob
  */
 public class ArrayGraph implements Graph{
-
-    public ArrayGraph(Collection<Vertex> vertices, Collection<Edge> aristas){
-
-    }
 
     public int getVertexNum() {
         throw new UnsupportedOperationException("Not supported yet.");

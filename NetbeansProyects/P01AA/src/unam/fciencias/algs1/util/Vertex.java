@@ -1,7 +1,6 @@
 package unam.fciencias.algs1.util;
 
 import java.util.List;
-import java.util.Vector;
 
 /**
  *
