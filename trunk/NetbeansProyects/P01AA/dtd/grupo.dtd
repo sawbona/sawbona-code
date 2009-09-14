@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT grupo (profesor, alumno+)>
+<!ATTLIST grupo clave CDATA #REQUIRED>
+
+<!ELEMENT profesor (nombre, apaterno, amaterno)>
+<!ATTLIST profesor categoria (TC|AS) #REQUIRED>
+
+<!ELEMENT alumno (nombre, apaterno, amaterno)>
+<!ATTLIST alumno ncuenta CDATA #REQUIRED>
+
+<!ELEMENT nombre   (#PCDATA)>
+<!ELEMENT apaterno (#PCDATA)>
+<!ELEMENT amaterno (#PCDATA)>

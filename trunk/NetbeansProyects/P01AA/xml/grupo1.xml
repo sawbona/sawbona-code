@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grupo PUBLIC "-//FC//DTD grupo//EN" "../dtd/grupo.dtd">
+<grupo clave="69">
+	<profesor categoria="TC">
+		<nombre>Gabriel</nombre>
+		<apaterno>Garcia</apaterno>
+		<amaterno>Marquez</amaterno>
+	</profesor>
+	<alumno ncuenta="0001">
+		<nombre>Hugo</nombre>
+		<apaterno>Mc Pato</apaterno>
+		<amaterno>Rico</amaterno>
+	</alumno>
+	<alumno ncuenta="0010">
+		<nombre>Paco</nombre>
+		<apaterno>Mc Pato</apaterno>
+		<amaterno>Rico</amaterno>
+	</alumno>
+	<alumno ncuenta="0011">
+		<nombre>Luis</nombre>
+		<apaterno>Mc Pato</apaterno>
+		<amaterno>Rico</amaterno>
+	</alumno>
+</grupo>
