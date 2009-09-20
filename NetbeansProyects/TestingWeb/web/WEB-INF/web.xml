@@ -3,9 +3,6 @@
     <servlet>
         <servlet-name>action</servlet-name>
         <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
-        <!--
-        Hola.
-        -->
         <init-param>
             <param-name>config</param-name>
             <param-value>/WEB-INF/struts-config.xml</param-value>
@@ -30,22 +27,34 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <security-constraint>
-        <display-name>Constraint1</display-name>
+        <display-name>Constraint para los administradores</display-name>
         <web-resource-collection>
-            <web-resource-name>NombreRecurso</web-resource-name>
-            <description>
-                Una descripción
-            </description>
-            <url-pattern>/*</url-pattern>
+            <web-resource-name>recursoAdministradores</web-resource-name>
+            <description>Recurso para administradores</description>
+            <url-pattern>/admin/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description>
                 Descripcion de auth-constraint
             </description>
-            <role-name>root</role-name>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>Constraint para los alumnos</display-name>
+        <web-resource-collection>
+            <web-resource-name>recursoAlumnos</web-resource-name>
+            <description>Recurso para alumnos</description>
+            <url-pattern>/alumno/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>
+                Descripcion de auth-constraint
+            </description>
+            <role-name>alumno</role-name>
         </auth-constraint>
     </security-constraint>
     <login-config>
@@ -57,9 +66,11 @@
         </form-login-config>
     </login-config>
     <security-role>
-        <description>
-            Descripcion del rol 1
-        </description>
-        <role-name>root</role-name>
+        <description>Rol de administrador</description>
+        <role-name>admin</role-name>
+    </security-role>
+    <security-role>
+        <description>Rol para los alumnos</description>
+        <role-name>alumno</role-name>
     </security-role>
 </web-app>
