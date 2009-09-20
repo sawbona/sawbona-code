@@ -11,14 +11,14 @@ import mx.com.sawbona.testing.modelo.Usuario;
  */
 public class UsuariosAccessDataImpl implements UsuariosAccessData{
 
-    @Override
+//    @Override
     public boolean exiteUsuario(Usuario usuario) {
         boolean resultado = true;
         Util.getEntityManager();
         return resultado;
     }
 
-    @Override
+//    @Override
     public void altaUsuario(Usuario usuario) {
         EntityManager entityManager = Util.getEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
