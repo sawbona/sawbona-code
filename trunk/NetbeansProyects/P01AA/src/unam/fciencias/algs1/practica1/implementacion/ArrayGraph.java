@@ -6,6 +6,8 @@
 package unam.fciencias.algs1.practica1.implementacion;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 import unam.fciencias.algs1.util.Edge;
 import unam.fciencias.algs1.util.Graph;
@@ -54,15 +56,23 @@ public class ArrayGraph implements Graph{
         return resultado;
     }
 
+    private Edge getEdge(Vertex s, Vertex E, List<Vertex> visitados){
+        for(int i = 0; i < aristas.length ; ++i){
+            if(visitado){
+
+            }
+        }
+    }
+
+
     public Edge getEdge(int i) {
         return aristas[i];
     }
 
-    public boolean isAdjacent(Vertex start, Vertex end) {
+    public final boolean isAdjacent(Vertex start, Vertex end) {
         for (int i = 0; i < aristas.length; i++) {
             Edge arista = aristas[i];
-            if(arista.getSource() == start && arista.getTarget() == end ||
-                    (arista.getSource() == end && arista.getTarget() == start)){
+            if(arista.getSource() == start && arista.getTarget() == end){
                 return true;
             }
         }
@@ -74,15 +84,15 @@ public class ArrayGraph implements Graph{
     }
 
     public int getDegree(Vertex v) {
-        return v.grade();
+        return getNeighborsList(v).size();
     }
 
     public int getDegree(int i) {
-        return vertices[i].getNeighboursList().size();
+        return getNeighborsList(vertices[i]).size();
     }
 
     public int getWeight(Edge e) {
-        return e.getWeight();
+        return getEdge(e.getSource(), e.getTarget()).getWeight();
     }
 
     public int getWeight(Vertex start, Vertex end) {
@@ -94,15 +104,22 @@ public class ArrayGraph implements Graph{
     }
 
     public Vertex[] getNeighborsArray(Vertex v) {
-       return (Vertex[]) v.getNeighboursList().toArray();
+       return (Vertex[]) getNeighborsList(v).toArray();
     }
 
     public Vertex[] getNeighborsArray(int i) {
-        return (Vertex[]) vertices[i].getNeighboursList().toArray();
+        return (Vertex[]) getNeighborsList(vertices[i]).toArray();
     }
 
-    public List<Vertex> getNeighborsList(Vertex v) {
-        return v.getNeighboursList();
+    public final List<Vertex> getNeighborsList(Vertex v) {
+        List<Vertex> vecinos = new LinkedList<Vertex>();
+        for(int i = 0; i < aristas.length; ++i){
+            Edge arista = aristas[i];
+            if(arista.getSource() == v){
+                vecinos.add(arista.getTarget());
+            }
+        }
+        return vecinos;
     }
 
     public List<Vertex> getNeighborsList(int i) {
