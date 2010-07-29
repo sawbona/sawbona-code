@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE weblogic-ejb-jar PUBLIC "-//BEA Systems, Inc.//DTD WebLogic 8.1.0 EJB//EN" "http://www.bea.com/servers/wls810/dtd/weblogic-ejb-jar.dtd">
+<!-- Generado automaticamente con XDoclet. No editar! -->
+<weblogic-ejb-jar>
+    <!--description><![CDATA[Generado con XDoclet]]>
+    </description>
+    <weblogic-enterprise-bean>
+        <ejb-name>BusinessBDBean</ejb-name>
+        <transaction-descriptor>
+            <trans-timeout-seconds>60</trans-timeout-seconds>
+        </transaction-descriptor>
+        <enable-call-by-reference>True</enable-call-by-reference>
+        <jndi-name>ejb.BusinessBDBean#mx.com.constanza.construccion.bpm.negocio.BusinessBDBeanRemote</jndi-name>
+    </weblogic-enterprise-bean-->
+    <!-- Transacciones -->
+    <!-- Metodos idempotentes -->
+    <!--idempotent-methods>
+    </idempotent-methods-->
+</weblogic-ejb-jar>
