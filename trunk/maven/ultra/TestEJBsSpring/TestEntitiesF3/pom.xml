@@ -12,11 +12,58 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>4.5</version>
+        </dependency>
+         <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc5</artifactId>
+            <version>11.1.0.7.0</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>eclipselink</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>jsr250-api</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.transaction</groupId>
+            <artifactId>jta</artifactId>
+            <version>1.1</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
         <finalName>TestEntitiesF3</finalName>
     </build>
+    <repositories>
+        <repository>
+            <url>http://ftp.ing.umu.se/mirror/eclipse/rt/eclipselink/maven.repo</url>
+            <id>eclipselink</id>
+            <layout>default</layout>
+            <name>Repository for library Library[eclipselink]</name>
+        </repository>
+    </repositories>
 </project>
+
