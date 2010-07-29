@@ -13,7 +13,7 @@
         <module>TestEJBF2Ear</module>
         <module>TestEJBF1</module>
         <module>TestEJBF1Ear</module>
-        <module>TestSpringEJBs</module>
+        <module>AplicacionWeb</module>
     </modules>
     <dependencies>
         <dependency>

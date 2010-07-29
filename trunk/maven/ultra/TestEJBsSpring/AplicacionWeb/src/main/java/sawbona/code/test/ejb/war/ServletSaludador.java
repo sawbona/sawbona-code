@@ -2,24 +2,25 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package sawbona.code.proxy.servlet;
+package sawbona.code.test.ejb.war;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import sawbona.code.proxy.servlet.spring.ProxyBean;
+import sawbona.code.test.ejb.f1.SimpleEJBF1Interface;
 
 /**
  *
  * @author jacob
  */
-public class ProxyServlet extends HttpServlet {
+public class ServletSaludador extends HttpServlet {
 
-    ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+    @EJB(mappedName = "ejb/BusinessBDBean")
+    private SimpleEJBF1Interface simpleEJBF1Interface;
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,10 +31,33 @@ public class ProxyServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
-        ProxyBean proxyBean = context.getBean(ProxyBean.class);
-        proxyBean.setServletHomeURL(request.getRequestURL().toString());
-        proxyBean.procesaHttps(request, response);
+        PrintWriter out = response.getWriter();
+
+        try {
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ServletSaludador Prueba F1</title>");
+            out.println("</head>");
+            out.println("<body>");
+            if (simpleEJBF1Interface != null) {
+                out.println("<h1>Servlet ServletSaludador at " + simpleEJBF1Interface.diHolaF1("Jacob " + Math.random()) + "</h1>");
+            } else {
+                if (simpleEJBF1Interface == null) {
+                    out.println("<h1>ERROR EJB NULL" + "</h1>");
+                } else {
+                    out.println("<h1>Encontrado por initial context: " + simpleEJBF1Interface.diHolaF1("" + Math.random()) + "</h1>");
+                }
+            }
+            out.println("</body>");
+            out.println("</html>");
+        } finally {
+            out.close();
+        }
+//        } catch (NamingException ex) {
+//            Logger.getLogger(ServletSaludador.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

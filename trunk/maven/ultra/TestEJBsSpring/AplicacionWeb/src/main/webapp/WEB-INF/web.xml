@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+        <servlet-name>ServletSaludador</servlet-name>
+        <servlet-class>sawbona.code.test.ejb.war.ServletSaludador</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletSaludador</servlet-name>
+        <url-pattern>/ServletSaludador</url-pattern>
+    </servlet-mapping>
+
+    <!--ejb-ref>
+        <ejb-ref-name>SimpleEJBF1Interface</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <remote>sawbona.code.test.ejb.f1.SimpleEJBF1Interface</remote>
+        <ejb-link>TestEJBF1-1.0-SNAPSHOT.jar#SimpleEJBF1Remote</ejb-link>
+    </ejb-ref-->
+</web-app>
