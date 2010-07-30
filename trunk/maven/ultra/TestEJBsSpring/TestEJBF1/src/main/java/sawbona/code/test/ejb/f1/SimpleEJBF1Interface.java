@@ -11,6 +11,6 @@ package sawbona.code.test.ejb.f1;
  */
 public interface SimpleEJBF1Interface {
 
-    String diHolaF1(String nombre);
+    Object findNegocio(Class clase);
 
 }

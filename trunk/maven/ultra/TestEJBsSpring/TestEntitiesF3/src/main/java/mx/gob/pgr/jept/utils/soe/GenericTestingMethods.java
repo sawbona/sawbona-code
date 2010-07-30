@@ -12,7 +12,7 @@ import javax.persistence.Query;
 
 public class GenericTestingMethods {
 
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("sawbona.code.test.ejb.f3_Entities_jar_1.0-SNAPSHOTPU");
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("EntitiesF3PU");
 
     /** EntityManagerCreator */
     private EntityManager getEntityManager() {

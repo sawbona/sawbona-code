@@ -47,19 +47,19 @@ public class EJBTest {
     //++++++++++++++++++++++++++ PRUEBAS +++++++++++++++++++++++++++++++++++++++
     @Test
     public void testSOE04_E001() {
-        System.out.println("testSOE04_E001");
-        EJB ejb = new EJB();
-        ejb.setEjbName("Nombre EJB");
-        //ejb.setEjbtiempo(new Date());
-        try {
-            instance.objectPersist(ejb);
-            assertTrue(true);
-        } catch (RollbackException e) {
-            String mensaje = e.getCause().getMessage();
-            e.printStackTrace();
-            if (mensaje.contains("Internal Exception: java.sql.SQLException")) {
-                assertFalse(mensaje.contains("ORA-01400"));
-            }
-        }
+//        System.out.println("testSOE04_E001");
+//        EJB ejb = new EJB();
+//        ejb.setEjbName("Nombre EJB");
+//        //ejb.setEjbtiempo(new Date());
+//        try {
+//            instance.objectPersist(ejb);
+//            assertTrue(true);
+//        } catch (RollbackException e) {
+//            String mensaje = e.getCause().getMessage();
+//            e.printStackTrace();
+//            if (mensaje.contains("Internal Exception: java.sql.SQLException")) {
+//                assertFalse(mensaje.contains("ORA-01400"));
+//            }
+//        }
     }
 }

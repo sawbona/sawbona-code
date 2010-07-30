@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>sawbona.code.test.ejb.f3</groupId>
     <artifactId>Entities</artifactId>
-    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <name>Entities Test F3</name>
     <url>http://maven.apache.org</url>
     <dependencies>
@@ -14,21 +14,29 @@
             <artifactId>junit</artifactId>
             <version>4.5</version>
         </dependency>
-         <dependency>
+        <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc5</artifactId>
             <version>11.1.0.7.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbyclient</artifactId>
+            <version>10.2.1.6</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>javax.persistence</artifactId>
             <version>2.0.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>eclipselink</artifactId>
             <version>2.0.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax.annotation</groupId>
@@ -55,7 +63,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>TestEntitiesF3</finalName>
     </build>
     <repositories>
         <repository>

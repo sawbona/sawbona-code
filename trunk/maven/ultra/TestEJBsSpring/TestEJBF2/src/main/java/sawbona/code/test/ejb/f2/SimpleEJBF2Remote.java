@@ -4,7 +4,7 @@
  */
 package sawbona.code.test.ejb.f2;
 
-import javax.ejb.Local;
+import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -15,9 +15,9 @@ import javax.persistence.Query;
  *
  * @author jacob
  */
-@Local(SimpleEJBF2Interface.class)
-@Stateless(name = "SimpleEJBF2LocalBean", mappedName = "ejb/SimpleEJBF2LocalBean")
-public class SimpleEJBF2Local implements SimpleEJBF2Interface {
+@Remote(SimpleEJBF2Interface.class)
+@Stateless(name = "SimpleEJBF2RemoteBean", mappedName = "ejb/SimpleEJBF2RemoteBean")
+public class SimpleEJBF2Remote implements SimpleEJBF2Interface {
 
     @PersistenceContext(unitName = "EntitiesF3PU")
     private EntityManager entityManager;
