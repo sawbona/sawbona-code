@@ -21,9 +21,24 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
+        <dependency>
+            <groupId>sawbona.code.test.ejb.f3</groupId>
+            <artifactId>Entities</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>eclipselink</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>2.0.0</version>
+        </dependency>
     </dependencies>
     <build>
-        <finalName>test.ear.f2</finalName>
+        <finalName>TestEarF2</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -33,6 +48,26 @@
                     <displayName>Test Ear F2</displayName>
                     <encoding>UTF-8</encoding>
                     <version>5</version>
+                    <modules>
+                        <jarModule>
+                            <groupId>sawbona.code.test.ejb.f3</groupId>
+                            <artifactId>Entities</artifactId>
+                            <bundleDir>APP-INF/lib</bundleDir>
+                            <includeInApplicationXml>true</includeInApplicationXml>
+                        </jarModule>
+                        <jarModule>
+                            <groupId>org.eclipse.persistence</groupId>
+                            <artifactId>eclipselink</artifactId>
+                            <bundleDir>APP-INF/lib</bundleDir>
+                            <includeInApplicationXml>true</includeInApplicationXml>
+                        </jarModule>
+                        <jarModule>
+                            <groupId>org.eclipse.persistence</groupId>
+                            <artifactId>javax.persistence</artifactId>
+                            <bundleDir>APP-INF/lib</bundleDir>
+                            <includeInApplicationXml>true</includeInApplicationXml>
+                        </jarModule>
+                    </modules>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,0 +1,13 @@
+Este commit funciona con una base de datos apache derby LOCAL configurada de la siguiente manera
+dentro del persistence.xml
+
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
+      <property name="javax.persistence.jdbc.password" value="app"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.user" value="app"/>
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+
+También es necesario tener el siguiente jar dentro del lib de weblogic:
+derbyclient-10.2.1.6
+
+ABUUURRRRRRR.!

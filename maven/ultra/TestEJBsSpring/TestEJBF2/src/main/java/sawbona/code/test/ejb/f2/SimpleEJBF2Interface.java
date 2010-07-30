@@ -10,5 +10,5 @@ package sawbona.code.test.ejb.f2;
  */
 public interface SimpleEJBF2Interface {
 
-    String saluda(String nombre);
+    Object find(Class clase);
 }

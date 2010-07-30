@@ -7,6 +7,10 @@ package sawbona.code.test.ejb.war;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +25,15 @@ public class ServletSaludador extends HttpServlet {
 
     @EJB(mappedName = "ejb/BusinessBDBean")
     private SimpleEJBF1Interface simpleEJBF1Interface;
+//    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("EntitiesF3PU");
+//    private static EntityManager em;
 
-    /** 
+
+//    static {
+//        em = emf.createEntityManager();
+//    }
+
+    /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
      * @param response servlet response
@@ -34,22 +45,17 @@ public class ServletSaludador extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
         try {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet ServletSaludador Prueba F1</title>");
             out.println("</head>");
             out.println("<body>");
-            if (simpleEJBF1Interface != null) {
-                out.println("<h1>Servlet ServletSaludador at " + simpleEJBF1Interface.diHolaF1("Jacob " + Math.random()) + "</h1>");
-            } else {
-                if (simpleEJBF1Interface == null) {
-                    out.println("<h1>ERROR EJB NULL" + "</h1>");
-                } else {
-                    out.println("<h1>Encontrado por initial context: " + simpleEJBF1Interface.diHolaF1("" + Math.random()) + "</h1>");
-                }
-            }
+            out.print("<h1>");
+//            em.getTransaction().begin();
+            out.print("Objeto encontrado: " + simpleEJBF1Interface.findNegocio(sawbona.code.test.entities.f3.EJB.class));
+//            em.getTransaction().commit();
+            out.print("</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {
@@ -60,8 +66,8 @@ public class ServletSaludador extends HttpServlet {
 //        }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
      * Handles the HTTP <code>GET</code> method.
      * @param request servlet request
      * @param response servlet response
@@ -74,7 +80,7 @@ public class ServletSaludador extends HttpServlet {
         processRequest(request, response);
     }
 
-    /** 
+    /**
      * Handles the HTTP <code>POST</code> method.
      * @param request servlet request
      * @param response servlet response
@@ -87,7 +93,7 @@ public class ServletSaludador extends HttpServlet {
         processRequest(request, response);
     }
 
-    /** 
+    /**
      * Returns a short description of the servlet.
      * @return a String containing servlet description
      */
